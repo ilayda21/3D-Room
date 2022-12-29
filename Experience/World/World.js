@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import Controls from "./Controls";
 import Environment from "./Environment";
+import Floor from "./Floor";
 import Room from "./Room";
 
 export default class World {
@@ -16,12 +17,14 @@ export default class World {
         this.camera,
         this.resources
       );
+      this.floor = new Floor(this.scene);
       this.room = new Room(this.scene, this.camera, this.resources, this.time);
       this.controls = new Controls(
         this.scene,
         this.camera,
         this.resources,
-        this.time
+        this.time,
+        this.room
       );
     });
   }

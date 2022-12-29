@@ -37,7 +37,7 @@ export default class Experience {
       this.update();
     });
 
-    this.time.on("resize", () => {
+    this.sizes.on("resize", () => {
       this.resize();
     });
   }
