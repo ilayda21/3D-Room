@@ -139,6 +139,7 @@ body {
   color: var(--primary-pink);
   font-size: 24px;
 }
+
 /* Hero section -------------------------------------*/
 .hero {
   width: 100vw;
@@ -177,4 +178,57 @@ body {
   font-size: 24px;
   text-transform: uppercase;
   font-weight: 300;
+}
+
+/* Theme Toggle -------------------------------------*/
+
+.toggle-bar {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  right: 48px;
+  z-index: 9999;
+}
+
+.sun-wrapper,
+.moon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-button {
+  cursor: pointer;
+  position: relative;
+  width: 56px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-pink);
+  border-radius: 999px;
+  margin: 0 16px;
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  outline: none;
+}
+
+.toggle-circle {
+  position: absolute;
+  left: 6px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.toggle-button:hover .toggle-circle {
+  transform: scale(0.9);
+}
+
+.slide {
+  left: 28px;
 }

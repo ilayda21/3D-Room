@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import Camera from "./Camera";
 import Renderer from "./Renderer";
+import Theme from "./Theme";
 import assets from "./Utils/assets";
 import Resources from "./Utils/Resources";
 import Sizes from "./Utils/Sizes";
@@ -31,7 +32,16 @@ export default class Experience {
     );
 
     this.resources = new Resources(this.renderer, assets);
-    this.world = new World(this.scene, this.camera, this.resources, this.time);
+    this.theme = new Theme();
+    this.world = new World(
+      this.scene,
+      this.camera,
+      this.resources,
+      this.time,
+      this.theme
+    );
+
+    this.theme = new Theme();
 
     this.time.on("update", () => {
       this.update();

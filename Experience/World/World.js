@@ -5,12 +5,15 @@ import Floor from "./Floor";
 import Room from "./Room";
 
 export default class World {
-  constructor(scene, camera, resources, time) {
+  constructor(scene, camera, resources, time, theme) {
     this.scene = scene;
     this.camera = camera;
-
+    this.theme = theme;
     this.resources = resources;
     this.time = time;
+    this.theme.on("switch", (theme) => {
+      this.switchTheme(theme);
+    });
     this.resources.on("ready", () => {
       this.environment = new Environment(
         this.scene,
@@ -28,6 +31,14 @@ export default class World {
       );
     });
   }
+
+  switchTheme(theme) {
+    if (this.environment) {
+      this.environment.switchTheme(theme);
+    }
+  }
+
+  resize() {}
 
   update() {
     if (this.room) {
