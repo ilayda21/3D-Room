@@ -40,13 +40,21 @@ export default class Room {
         });
       }
 
-      if (child.name === "Aqua_Glass") {
-        child.material = new THREE.MeshPhysicalMaterial();
-        child.material.roughness = 0;
-        child.material.color.set(0x549dd2);
-        child.material.ior = 3;
-        child.material.transmission = 1;
-        child.material.opacity = 1;
+      if (child.name === "Aquarium") {
+        for (let aquariumElement of child.children) {
+          if (
+            aquariumElement.material &&
+            aquariumElement.material.name === "Water"
+          ) {
+            aquariumElement.material = new THREE.MeshPhysicalMaterial();
+            aquariumElement.material.roughness = 0;
+            aquariumElement.material.color.set(0x549dd2);
+            aquariumElement.material.ior = 3;
+            aquariumElement.material.transmission = 1;
+            aquariumElement.material.opacity = 1;
+            break;
+          }
+        }
       }
     });
 
